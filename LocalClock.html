@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Clock</title>
+  <link rel="stylesheet" href="LocalClockStyle.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="clock-box">
+    <div class="clock">
+      <div class="hour">00</div>
+      <div class="dot">:</div>
+      <div class="min">00</div>
+      <div class="dot">:</div>
+      <div class="sec">00</div>
+    </div>
+    <div class="circle">
+      <div class="waterwave"></div>
+    </div>
+  </div>
+  <script>
+    let setDate = setInterval(() => {
+      const time = new Date()
+      const hour = time.getHours()
+      const min = time.getMinutes()
+      const sec = time.getSeconds()
+      document.querySelector('.hour').innerText = hour
+      document.querySelector('.min').innerText = min
+      document.querySelector('.sec').innerText = sec
+      
+      if ( hour < 10 ) {
+        document.querySelector('.hour').innerText = "0" + hour
+      }
+      if ( min < 10 ) {
+        document.querySelector('.min').innerText = "0" + min
+      }
+      if ( sec < 10 ) {
+        document.querySelector('.sec').innerText = "0" + sec
+      }
+    }, 1000)
+  </script>
+
+</body>
+</html>
